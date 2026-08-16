@@ -69,7 +69,7 @@ const PROJECTS = [
     tags: ["Python", "LangGraph", "AI Agents", "RAG", "FastAPI", "FAISS", "Docker", "React", "Gemini AI"],
     category: "AI Application",
     color: "#06b6d4",
-    github: "https://github.com/piyushraj00/TravelOS",
+    github: "https://github.com/PiyushRaj472100/TravelOS",
     demo: null,
     highlights: ["Multi-agent LangGraph orchestration", "FAISS Vector RAG", "Conversational itinerary planning"],
     onResume: true,
@@ -83,7 +83,7 @@ const PROJECTS = [
     tags: ["React", "FastAPI", "Python", "MongoDB", "JWT Auth", "ML", "AI Categorization"],
     category: "Full-Stack + ML",
     color: "#34d399",
-    github: "https://github.com/piyushraj00/expense-analyzer",
+    github: "https://github.com/PiyushRaj472100/expense-analyzer",
     demo: null,
     highlights: ["JWT auth + RBAC", "AI-based expense categorization", "Anomaly detection pipeline"],
     onResume: true,
@@ -97,7 +97,7 @@ const PROJECTS = [
     tags: ["Python", "Scikit-learn", "TensorFlow", "MongoDB", "XGBoost", "LSTM", "Transformers"],
     category: "Security AI",
     color: "#8b5cf6",
-    github: "https://github.com/piyushraj00/AuthAI",
+    github: "https://github.com/PiyushRaj472100/AuthAI",
     demo: null,
     highlights: ["Behavioral biometrics (mouse, keyboard, click)", "Multi-model benchmarking", "Real-time bot detection"],
     onResume: true,
@@ -111,7 +111,7 @@ const PROJECTS = [
     tags: ["Python", "LangChain", "Hugging Face", "ChromaDB", "FastAPI"],
     category: "AI Application",
     color: "#f59e0b",
-    github: "https://github.com/piyushraj00/tejas-ai",
+    github: "https://github.com/PiyushRaj472100/tejas-ai",
     demo: null,
     highlights: ["RAG retrieval", "Fine-tuned LLM", "Streaming responses"],
     onResume: false,
@@ -125,7 +125,7 @@ const PROJECTS = [
     tags: ["Python", "FastAPI", "React", "PostgreSQL", "Cron"],
     category: "Full-Stack + ML",
     color: "#f43f5e",
-    github: "https://github.com/piyushraj00/recurring-expenser",
+    github: "https://github.com/PiyushRaj472100/recurring-expenser",
     demo: null,
     highlights: ["Recurring billing automation", "Multi-currency", "Smart alerts"],
     onResume: false,
@@ -139,7 +139,7 @@ const PROJECTS = [
     tags: ["Python", "XGBoost", "Random Forest", "Pandas", "Streamlit", "Scikit-learn"],
     category: "ML Model",
     color: "#06b6d4",
-    github: "https://github.com/piyushraj00/car-price-prediction",
+    github: "https://github.com/PiyushRaj472100/car-price-prediction",
     demo: null,
     highlights: ["Ensemble ML model", "Feature engineering", "Streamlit deployment"],
     onResume: false,
@@ -466,7 +466,7 @@ function FloatingOrb({ cx, cy, r, color, delay }: { cx: string; cy: string; r: n
   );
 }
 
-function Hero() {
+function Hero({ onPreviewResume }: { onPreviewResume?: () => void }) {
   const role = useTypingCycle(ROLES);
 
   return (
@@ -529,32 +529,47 @@ function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.55 }}
-          className="flex flex-wrap items-center justify-center gap-4"
+          className="flex flex-wrap items-center justify-center gap-3 md:gap-4"
         >
           <a
-            href="https://github.com/piyushraj00"
+            href="https://www.linkedin.com/in/piyush-raj-d/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-primary/90 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
-          >
-            <Github size={16} />
-            GitHub
-          </a>
-          <a
-            href="https://linkedin.com/in/piyushraj00"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-semibold rounded-xl hover:border-primary/50 hover:bg-primary/5 transition-all hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground font-semibold text-sm rounded-xl hover:bg-primary/90 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
           >
             <Linkedin size={16} />
             LinkedIn
           </a>
+          <a
+            href="https://github.com/PiyushRaj472100"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-foreground font-semibold text-sm rounded-xl hover:border-primary/50 hover:bg-primary/5 transition-all hover:scale-105 active:scale-95"
+          >
+            <Github size={16} />
+            GitHub
+          </a>
+          <button
+            onClick={onPreviewResume}
+            className="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-foreground font-semibold text-sm rounded-xl hover:border-primary/50 hover:bg-primary/5 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            <Eye size={16} />
+            Preview Resume
+          </button>
+          <a
+            href="/Piyush_Raj_Resume.pdf"
+            download="Piyush_Raj_Resume.pdf"
+            className="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-foreground font-semibold text-sm rounded-xl hover:border-primary/50 hover:bg-primary/5 transition-all hover:scale-105 active:scale-95"
+          >
+            <Download size={16} />
+            Download Resume
+          </a>
           <button
             onClick={() => document.getElementById("ai")?.scrollIntoView({ behavior: "smooth" })}
-            className="inline-flex items-center gap-2 px-6 py-3 border border-accent/40 text-accent font-semibold rounded-xl hover:bg-accent/10 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 border border-accent/40 bg-accent/10 text-accent font-semibold text-sm rounded-xl hover:bg-accent/20 transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
           >
             <Bot size={16} />
-            Ask AI About Me
+            Ask About Me
           </button>
         </motion.div>
 
@@ -1087,7 +1102,6 @@ function ResumeModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
 
 function Resume() {
   const { ref, inView } = useInView();
-  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section id="resume" className="py-24 px-6 bg-card/30">
@@ -1148,42 +1162,7 @@ function Resume() {
             </div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <a
-            href="/Piyush_Raj_Resume.pdf"
-            download="Piyush_Raj_Resume.pdf"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-primary/90 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
-          >
-            <Download size={16} />
-            Download Resume (PDF)
-          </a>
-          <button
-            onClick={() => setModalOpen(true)}
-            className="inline-flex items-center gap-2 px-8 py-3 border border-border text-foreground font-semibold rounded-xl hover:border-primary/50 hover:bg-primary/5 transition-all hover:scale-105 active:scale-95 cursor-pointer"
-          >
-            <Eye size={16} />
-            Preview Resume
-          </button>
-          <a
-            href="https://github.com/piyushraj00"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 border border-border text-muted-foreground hover:text-foreground font-semibold rounded-xl hover:border-primary/50 hover:bg-primary/5 transition-all hover:scale-105 active:scale-95"
-          >
-            <Github size={16} />
-            GitHub
-          </a>
-        </motion.div>
       </div>
-
-      <ResumeModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }
@@ -1195,43 +1174,262 @@ interface Message {
   content: string;
 }
 
-function parseFormattedText(text: string) {
-  // Parse markdown links, code blocks, bold text
-  const linkRegex = /\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g;
-  const parts: (string | React.ReactElement)[] = [];
-  let lastIdx = 0;
-  let match: RegExpExecArray | null;
+const INSTANT_RESPONSES: Record<string, string> = {
+  about: `Hello! Here is an executive introduction to Piyush Raj:
 
-  while ((match = linkRegex.exec(text)) !== null) {
-    if (match.index > lastIdx) {
-      parts.push(text.slice(lastIdx, match.index));
+**Piyush Raj** is a Software Developer specializing in **AI/ML systems, Full-Stack engineering, and Data-Driven architectures**. He is currently completing his **B.E. in Computer Science & Engineering at Chandigarh University (CGPA: 8.26, 2022–2026)**.
+
+### 🌟 Key Highlights & Engineering Strengths:
+- **Flagship AI Systems**: Built **[TravelOS](https://github.com/PiyushRaj472100/TravelOS)** (Autonomous multi-agent travel platform using LangGraph, Gemini, & FAISS Vector RAG) and **[AuthAI](https://github.com/PiyushRaj472100/AuthAI)** (Real-time behavioral biometrics bot detection).
+- **Published Research**: Author of the peer-reviewed paper *"AuthAI — Real-Time Behavioral AI for CAPTCHA-Free Security"* published in **IJSREM (2024)**.
+- **Full-Stack & Backend Proficiency**: Extensive production-grade work with **FastAPI, Python, React, MongoDB, PostgreSQL, Docker, and Azure**.
+- **Industry Certified**: **Oracle Cloud Infrastructure (OCI) 2025 Certified AI Foundations Associate** and **IBM Certified in SQL Databases**.
+- **Awards**: **2nd Place** at the College-Level AI Project Expo (40+ competing teams).
+
+Piyush is passionate about creating high-performance, intelligent software that solves real-world challenges. Feel free to ask about any specific project or his technical stack!`,
+
+  projects: `Here are the AI/ML and engineering projects built by Piyush Raj:
+
+1. 🚀 **[TravelOS](https://github.com/PiyushRaj472100/TravelOS)**
+   - **Tech Stack**: Python, LangGraph, AI Agents, FAISS Vector RAG, Google Gemini, FastAPI, Docker, React
+   - **Overview**: Autonomous multi-agent travel planning platform utilizing LangGraph and Google Gemini for conversational itinerary planning, vector-based destination search, and real-time multi-currency budget processing.
+
+2. 🛡️ **[AuthAI](https://github.com/PiyushRaj472100/AuthAI)**
+   - **Tech Stack**: Python, Scikit-learn, TensorFlow, MongoDB, XGBoost, LSTM, Isolation Forest
+   - **Overview**: Real-time behavioral biometrics authentication system benchmarked across Random Forest, XGBoost, and LSTM models to detect bots and unauthorized users via mouse/keystroke dynamics without CAPTCHAs (Published in IJSREM).
+
+3. 💰 **[Smart Personal Expense Analyzer](https://github.com/PiyushRaj472100/expense-analyzer)**
+   - **Tech Stack**: React, FastAPI, Python, MongoDB, Machine Learning, JWT Auth
+   - **Overview**: Full-stack AI financial platform featuring automated transaction categorization, spending pattern analysis, anomaly detection, and predictive financial insights.
+
+4. 🤖 **[Tejas AI](https://github.com/PiyushRaj472100/tejas-ai)**
+   - **Tech Stack**: Python, LangChain, Hugging Face Transformers, ChromaDB, FastAPI
+   - **Overview**: Domain-specialized conversational AI system with RAG retrieval and streaming response interface.
+
+5. 🔄 **[Recurring Expenser](https://github.com/PiyushRaj472100/recurring-expenser)**
+   - **Tech Stack**: Python, FastAPI, React, PostgreSQL, Cron
+   - **Overview**: Automated subscription tracker and recurring expense orchestration engine with smart renewal alerts.
+
+6. 🚗 **[Used Car Price Prediction](https://github.com/PiyushRaj472100/car-price-prediction)**
+   - **Tech Stack**: Python, XGBoost, Random Forest, Scikit-learn, Pandas, Streamlit
+   - **Overview**: Gradient-boosted ensemble ML regression pipeline for vehicle valuation with an interactive Streamlit deployment.
+
+Ask me about any specific project (e.g., *"Explain TravelOS"* or *"Explain AuthAI"*) for an in-depth architectural breakdown!`,
+
+  travelos: `### ✈️ TravelOS — AI Travel Planning Platform
+**GitHub Repository**: [TravelOS](https://github.com/PiyushRaj472100/TravelOS)
+
+#### 1. Problem Statement
+Traditional travel booking involves juggling multiple tabs for flights, hotels, activities, and budget calculations without personalized context or cohesive itinerary orchestration.
+
+#### 2. Architecture & Technical Solution
+- **Multi-Agent Orchestration**: Implemented using **LangGraph**, where specialized autonomous agents handle destination discovery, routing, weather analysis, and budgeting in synchronized state graphs.
+- **RAG Pipeline**: Integrated **FAISS Vector Database** with Google Gemini embeddings to retrieve relevant travel guides, localized tips, and user preferences with low latency.
+- **Backend & Deployment**: Built with **FastAPI** with structured JSON schemas, async endpoints, and **Docker** containerization for scalable deployment.
+- **Frontend**: Responsive **React** UI with real-time conversational streaming and interactive itinerary boards.
+
+#### 3. Key Achievements & Impact
+- Built end-to-end conversational planning capable of handling complex multi-city constraints and multi-currency conversions in seconds.
+- Achieved modular agent workflows where individual agent failures degrade gracefully without crashing the pipeline.`,
+
+  authai: `### 🛡️ AuthAI — Real-Time Behavioral Biometrics Authentication
+**GitHub Repository**: [AuthAI](https://github.com/PiyushRaj472100/AuthAI)
+**Publication**: Published in *International Journal of Scientific Research in Engineering and Management (IJSREM), 2024*
+
+#### 1. Problem Statement
+Traditional CAPTCHAs create severe friction in user experience and are increasingly bypassed by advanced bots, while credential theft compromises static passwords and MFA tokens.
+
+#### 2. Architecture & Technical Solution
+- **Data Capture Pipeline**: Non-intrusively captures continuous behavioral telemetry (mouse acceleration, jitter, keystroke dwell times, flight times, and click patterns).
+- **ML Model Benchmarking**: Engineered and benchmarked multiple machine learning models:
+  - **Random Forest & XGBoost**: Fast tabular classification for anomaly detection.
+  - **Isolation Forest**: Unsupervised outlier detection for zero-day bot behaviors.
+  - **LSTM / Recurrent Networks**: Temporal sequence modeling of continuous user interactions.
+- **Backend & Storage**: **FastAPI** microservice communicating with **MongoDB** for time-series feature logging.
+
+#### 3. Key Achievements & Impact
+- Validated real-time CAPTCHA-free bot detection with high precision and low false-positive rates.
+- Published research paper in **IJSREM**, validating the academic and engineering rigor of the solution.`,
+
+  expense: `### 💰 Smart Personal Expense Analyzer — Full-Stack AI Finance Platform
+**GitHub Repository**: [Smart Personal Expense Analyzer](https://github.com/PiyushRaj472100/expense-analyzer)
+
+#### 1. Problem Statement
+Manual personal finance tracking is tedious, error-prone, and lacks predictive foresight into spending habits and unusual expenditures.
+
+#### 2. Architecture & Technical Solution
+- **Full-Stack Architecture**: Modern **React** frontend paired with a modular **FastAPI** (Python) backend and **MongoDB** database.
+- **Machine Learning Pipeline**: Custom classification models to automatically categorize transaction descriptions and analyze historical trends.
+- **Security & RBAC**: Implemented secure **JWT authentication** with refresh tokens, password hashing, and role-based access control.
+- **Anomaly Detection**: Flags unusual spikes or recurring charges deviations before they impact user budgets.
+
+#### 3. Key Features
+- Dynamic financial visualizer with interactive spending charts.
+- Automated CSV statement ingestion and categorization.
+- Personalized monthly budget recommendations based on ML spending projections.`,
+
+  certifications: `### 🏆 Certifications, Research & Milestones
+
+#### 📜 Professional Certifications:
+1. **Oracle Cloud Infrastructure (OCI) 2025 Certified AI Foundations Associate** — Oracle
+   - Demonstrates foundational and practical knowledge of cloud AI workloads, generative AI, LLMs, and cloud-native AI architecture.
+2. **SQL: A Practical Introduction for Querying Databases** — IBM
+   - Rigorous certification in relational database querying, multi-table joins, aggregations, subqueries, and performance optimization.
+
+#### 🔬 Published Research:
+- **AuthAI — Real-Time Behavioral AI for CAPTCHA-Free Security**
+  - Published in the *International Journal of Scientific Research in Engineering and Management (IJSREM), 2024*.
+  - Focuses on continuous user authentication using ML-driven behavioral biometrics.
+
+#### 🥇 Key Milestones & Awards:
+- **2nd Place Winner** at the College-Level AI Project Expo among 40+ competing engineering teams at Chandigarh University.
+- Consistent academic performance with an **8.26 CGPA** in B.E. Computer Science & Engineering.`,
+
+  skills: `### 💻 Piyush Raj — Technical Skills & Expertise
+
+- **Programming Languages**: C++, Python, SQL, JavaScript/TypeScript
+- **AI / Machine Learning**: Scikit-learn, TensorFlow, PyTorch, NumPy, Pandas, XGBoost, OpenCV, NLP, Transformers, LLMs, LangGraph, LangChain, FAISS, ChromaDB, RAG, Prompt Engineering, Time Series Analysis
+- **Backend & Web**: FastAPI, Flask, RESTful APIs, WebSockets, JWT Auth & RBAC, React, Node.js basics
+- **Databases**: PostgreSQL, MongoDB, MS SQL Server, Firebase
+- **Cloud, DevOps & Tools**: Docker, Git, GitHub, Azure, Databricks, Linux, VS Code, Cursor, Jupyter Notebook
+- **Core CS Fundamentals**: Data Structures & Algorithms (DSA), Object-Oriented Programming (OOP), Database Management Systems (DBMS), Operating Systems, Computer Networks, System Design & Design Patterns`,
+
+  contact: `### 📬 Contact Information for Piyush Raj
+
+You can reach out directly to Piyush through any of the following channels:
+
+- 📧 **Email**: [piyushraj1917@gmail.com](mailto:piyushraj1917@gmail.com)
+- 💼 **LinkedIn**: [linkedin.com/in/piyush-raj-d/](https://www.linkedin.com/in/piyush-raj-d/)
+- 💻 **GitHub**: [github.com/PiyushRaj472100](https://github.com/PiyushRaj472100)
+- 📱 **Phone**: [+91 9589771201](tel:+919589771201)
+- 📍 **Location**: India
+
+You can also use the contact form at the bottom of this page to send a direct message!`,
+};
+
+function getInstantResponse(query: string): string | null {
+  const q = query.toLowerCase().trim();
+  if (
+    q.includes("introduce") ||
+    q.includes("tell me about piyush") ||
+    q.includes("who is piyush") ||
+    q.includes("about piyush") ||
+    q.includes("tell me about yourself") ||
+    q.includes("who are you") ||
+    q === "intro" ||
+    q === "introduce yourself"
+  ) {
+    return INSTANT_RESPONSES.about;
+  }
+  if (q.includes("travelos") || q.includes("travel os")) {
+    return INSTANT_RESPONSES.travelos;
+  }
+  if (q.includes("authai") || q.includes("auth ai") || q.includes("biometric")) {
+    return INSTANT_RESPONSES.authai;
+  }
+  if (q.includes("expense") || q.includes("smart personal")) {
+    return INSTANT_RESPONSES.expense;
+  }
+  if (
+    q.includes("list ai/ml projects") ||
+    q.includes("ai/ml project") ||
+    q.includes("list project") ||
+    q.includes("what projects") ||
+    q.includes("what ai/ml projects") ||
+    q.includes("what has he built") ||
+    q.includes("show project") ||
+    q === "projects"
+  ) {
+    return INSTANT_RESPONSES.projects;
+  }
+  if (
+    q.includes("certif") ||
+    q.includes("milestone") ||
+    q.includes("achievement") ||
+    q.includes("award") ||
+    q.includes("paper") ||
+    q.includes("publication") ||
+    q.includes("research") ||
+    q.includes("oracle") ||
+    q.includes("ibm")
+  ) {
+    return INSTANT_RESPONSES.certifications;
+  }
+  if (
+    q.includes("skill") ||
+    q.includes("tech stack") ||
+    q.includes("technologies") ||
+    q.includes("languages")
+  ) {
+    return INSTANT_RESPONSES.skills;
+  }
+  if (
+    q.includes("contact") ||
+    q.includes("email") ||
+    q.includes("phone") ||
+    q.includes("reach") ||
+    q.includes("hire") ||
+    q.includes("linkedin") ||
+    q.includes("github")
+  ) {
+    return INSTANT_RESPONSES.contact;
+  }
+  return null;
+}
+
+function parseFormattedText(text: string) {
+  const lines = text.split("\n");
+  return lines.map((line, lineIdx) => {
+    const regex = /(\[([^\]]+)\]\((https?:\/\/[^\)]+)\)|\*\*([^*]+)\*\*)/g;
+    const parts: (string | React.ReactElement)[] = [];
+    let lastIdx = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = regex.exec(line)) !== null) {
+      if (match.index > lastIdx) {
+        parts.push(line.slice(lastIdx, match.index));
+      }
+      if (match[2] && match[3]) {
+        parts.push(
+          <a
+            key={`link-${lineIdx}-${match.index}`}
+            href={match[3]}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary font-semibold underline underline-offset-2 hover:text-primary/80 inline-flex items-center gap-0.5"
+          >
+            {match[2]}
+            <ExternalLink size={11} className="ml-0.5 inline" />
+          </a>
+        );
+      } else if (match[4]) {
+        parts.push(
+          <strong key={`bold-${lineIdx}-${match.index}`} className="font-semibold text-foreground">
+            {match[4]}
+          </strong>
+        );
+      }
+      lastIdx = regex.lastIndex;
     }
-    parts.push(
-      <a
-        key={match.index}
-        href={match[2]}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-primary font-medium underline underline-offset-2 hover:text-primary/80 inline-flex items-center gap-0.5"
-      >
-        {match[1]}
-        <ExternalLink size={11} className="ml-0.5 inline" />
-      </a>
+    if (lastIdx < line.length) {
+      parts.push(line.slice(lastIdx));
+    }
+
+    return (
+      <React.Fragment key={lineIdx}>
+        {lineIdx > 0 && <br />}
+        {parts}
+      </React.Fragment>
     );
-    lastIdx = linkRegex.lastIndex;
-  }
-  if (lastIdx < text.length) {
-    parts.push(text.slice(lastIdx));
-  }
-  return parts;
+  });
 }
 
 const QUICK_PROMPTS = [
-  "What AI/ML projects has Piyush built?",
-  "Tell me about TravelOS",
-  "Tell me about AuthAI",
-  "What are his technical skills?",
-  "What certifications does he have?",
+  "Introduce yourself",
+  "List AI/ML Projects",
+  "Explain TravelOS project",
+  "Explain AuthAI project",
+  "What certifications do you have?",
   "How to contact Piyush?",
 ];
 
@@ -1242,7 +1440,7 @@ function AIAssistant() {
     {
       role: "assistant",
       content:
-        "Hi! I'm Piyush's AI Portfolio Assistant 👋 I can answer questions about his projects, skills, certifications, research, and experience. What would you like to know?\n\nTry: \"What AI projects has he built?\" or \"Tell me about TravelOS\"",
+        "Hi! I'm Piyush's AI Portfolio Assistant 👋 I can answer questions about his projects, skills, certifications, research, and experience in an interview-ready format.\n\nTry clicking any quick prompt below or ask your own question!",
     },
   ]);
   const [input, setInput] = useState("");
@@ -1262,6 +1460,14 @@ function AIAssistant() {
       setError(null);
 
       const userMsg: Message = { role: "user", content: text.trim() };
+      const instant = getInstantResponse(text);
+
+      if (instant) {
+        setMessages((prev) => [...prev, userMsg, { role: "assistant", content: instant }]);
+        setInput("");
+        return;
+      }
+
       const updatedMessages = [...messages, userMsg];
       setMessages(updatedMessages);
       setInput("");
@@ -1536,8 +1742,8 @@ function Contact() {
             <div className="space-y-3">
               {[
                 { icon: Mail, label: "piyushraj1917@gmail.com", copyVal: "piyushraj1917@gmail.com", href: "mailto:piyushraj1917@gmail.com", color: "#06b6d4" },
-                { icon: Github, label: "github.com/piyushraj00", copyVal: "https://github.com/piyushraj00", href: "https://github.com/piyushraj00", color: "#8b5cf6" },
-                { icon: Linkedin, label: "linkedin.com/in/piyushraj00", copyVal: "https://linkedin.com/in/piyushraj00", href: "https://linkedin.com/in/piyushraj00", color: "#34d399" },
+                { icon: Github, label: "github.com/PiyushRaj472100", copyVal: "https://github.com/PiyushRaj472100", href: "https://github.com/PiyushRaj472100", color: "#8b5cf6" },
+                { icon: Linkedin, label: "linkedin.com/in/piyush-raj-d", copyVal: "https://www.linkedin.com/in/piyush-raj-d/", href: "https://www.linkedin.com/in/piyush-raj-d/", color: "#34d399" },
                 { icon: Phone, label: "+91 9589771201", copyVal: "+919589771201", href: "tel:+919589771201", color: "#f59e0b" },
               ].map(({ icon: Icon, label, copyVal, href, color }) => (
                 <div
@@ -1660,8 +1866,8 @@ function Footer() {
         </div>
         <div className="flex items-center gap-4">
           {[
-            { icon: Github, href: "https://github.com/piyushraj00" },
-            { icon: Linkedin, href: "https://linkedin.com/in/piyushraj00" },
+            { icon: Github, href: "https://github.com/PiyushRaj472100" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/piyush-raj-d/" },
             { icon: Mail, href: "mailto:piyushraj1917@gmail.com" },
           ].map(({ icon: Icon, href }) => (
             <a
@@ -1683,6 +1889,8 @@ function Footer() {
 // ─── App ─────────────────────────────────────────────────────────────────────
 
 export default function App() {
+  const [resumeModalOpen, setResumeModalOpen] = useState(false);
+
   return (
     <div
       className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary"
@@ -1690,7 +1898,7 @@ export default function App() {
     >
       <Nav />
       <main>
-        <Hero />
+        <Hero onPreviewResume={() => setResumeModalOpen(true)} />
         <About />
         <Skills />
         <Projects />
@@ -1702,6 +1910,7 @@ export default function App() {
       </main>
       <Footer />
       <BackToTop />
+      <ResumeModal isOpen={resumeModalOpen} onClose={() => setResumeModalOpen(false)} />
     </div>
   );
 }
