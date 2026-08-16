@@ -52,11 +52,11 @@ const NAV_LINKS = [
 ];
 
 const ROLES = [
-  "Software Developer",
   "AI/ML Engineer",
-  "Full-Stack Developer",
-  "Python Developer",
-  "Data-Driven Systems Builder",
+  "Machine Learning Developer",
+  "Generative AI & LLM Builder",
+  "Python & AI Systems Builder",
+  "Data-Driven Systems Engineer",
 ];
 
 const PROJECTS = [
@@ -477,18 +477,6 @@ function Hero({ onPreviewResume }: { onPreviewResume?: () => void }) {
       <FloatingOrb cx="50%" cy="80%" r={200} color="#34d399" delay={4} />
 
       <div className="relative z-10 max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 mb-8 shadow-sm"
-        >
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="font-mono text-xs text-primary tracking-widest uppercase font-semibold">
-            Available for opportunities
-          </span>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -572,22 +560,6 @@ function Hero({ onPreviewResume }: { onPreviewResume?: () => void }) {
             Ask About Me
           </button>
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-16 flex items-center justify-center gap-8 text-sm font-mono text-muted-foreground"
-        >
-          {[["6", "Projects"], ["1", "Published Paper"], ["8.26", "CGPA"], ["2025", "OCI Certified"]].map(
-            ([val, label]) => (
-              <div key={label} className="text-center">
-                <div className="text-2xl font-bold text-foreground">{val}</div>
-                <div className="text-xs mt-0.5 text-muted-foreground">{label}</div>
-              </div>
-            )
-          )}
-        </motion.div>
       </div>
 
       <motion.div
@@ -619,17 +591,17 @@ function About() {
             className="space-y-5"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm a <span className="text-foreground font-semibold">passionate Software Developer</span> with full-stack and MERN stack expertise, building scalable web platforms and data-driven systems.
+              I'm an <span className="text-foreground font-semibold">AI/ML Engineer</span> focused on building intelligent systems — autonomous agents, RAG pipelines, LLM applications, and production-grade machine learning models.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Experienced in RESTful APIs, system design, and AI-powered solutions. I work with FastAPI, Python, LangGraph, and React to build end-to-end applications. My recent work includes autonomous multi-agent AI systems, behavioral biometrics, and financial intelligence platforms.
+              My foundation is Python, SQL, and core ML. I work with LangGraph, LangChain, FAISS, PyTorch, TensorFlow, Scikit-learn, and FastAPI to build things that actually ship — not just Jupyter notebooks.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              I'm currently a <span className="text-foreground font-medium">B.E. Computer Science student at Chandigarh University</span> (CGPA: 8.26, graduating June 2026), with hands-on experience using Azure, Databricks, and modern AI development tools.
+              I'm an undergraduate in <span className="text-foreground font-medium">Computer Science & Engineering at Chandigarh University</span> (CGPA: 8.26, graduating June 2026), with a published paper in IJSREM on behavioral AI and biometrics.
             </p>
 
             <div className="flex flex-wrap gap-2.5 pt-2">
-              {["LLM Systems", "RAG Architecture", "Behavioral AI", "Full-Stack ML", "System Design", "Cloud-Native Dev"].map((t) => (
+              {["Machine Learning", "Generative AI & LLMs", "RAG & Vector Search", "LangGraph Agents", "Python & SQL", "Deep Learning"].map((t) => (
                 <span key={t} className="font-mono text-xs px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full font-medium">
                   {t}
                 </span>
@@ -1175,136 +1147,66 @@ interface Message {
 }
 
 const INSTANT_RESPONSES: Record<string, string> = {
-  about: `Hello! Here is an executive introduction to Piyush Raj:
+  about: `My name is Piyush Raj, an undergraduate in Computer Science & Engineering at Chandigarh University (CGPA 8.26, graduating June 2026). I have a strong foundation in Python, SQL, Machine Learning, and Generative AI — and I've built production-grade AI systems like **[TravelOS](https://github.com/PiyushRaj472100/TravelOS)** and **[AuthAI](https://github.com/PiyushRaj472100/AuthAI)**.
 
-**Piyush Raj** is a Software Developer specializing in **AI/ML systems, Full-Stack engineering, and Data-Driven architectures**. He is currently completing his **B.E. in Computer Science & Engineering at Chandigarh University (CGPA: 8.26, 2022–2026)**.
+My core focus is on Machine Learning, LLMs, RAG pipelines, and autonomous AI agents. I work with LangGraph, LangChain, FAISS, PyTorch, TensorFlow, Scikit-learn, and FastAPI to build real, deployable AI systems — not just demos.
 
-### 🌟 Key Highlights & Engineering Strengths:
-- **Flagship AI Systems**: Built **[TravelOS](https://github.com/PiyushRaj472100/TravelOS)** (Autonomous multi-agent travel platform using LangGraph, Gemini, & FAISS Vector RAG) and **[AuthAI](https://github.com/PiyushRaj472100/AuthAI)** (Real-time behavioral biometrics bot detection).
-- **Published Research**: Author of the peer-reviewed paper *"AuthAI — Real-Time Behavioral AI for CAPTCHA-Free Security"* published in **IJSREM (2024)**.
-- **Full-Stack & Backend Proficiency**: Extensive production-grade work with **FastAPI, Python, React, MongoDB, PostgreSQL, Docker, and Azure**.
-- **Industry Certified**: **Oracle Cloud Infrastructure (OCI) 2025 Certified AI Foundations Associate** and **IBM Certified in SQL Databases**.
-- **Awards**: **2nd Place** at the College-Level AI Project Expo (40+ competing teams).
+I've also published research in IJSREM on behavioral biometrics and bot detection, earned my Oracle Cloud AI Foundations certification, and placed 2nd at a college-level AI expo. Feel free to ask me about any specific project or my stack!`,
 
-Piyush is passionate about creating high-performance, intelligent software that solves real-world challenges. Feel free to ask about any specific project or his technical stack!`,
+  projects: `I've built six projects, mostly around AI/ML and intelligent systems:
 
-  projects: `Here are the AI/ML and engineering projects built by Piyush Raj:
+1. 🚀 **[TravelOS](https://github.com/PiyushRaj472100/TravelOS)** — Autonomous multi-agent travel platform using LangGraph, Google Gemini, FAISS Vector RAG, FastAPI, Docker, React.
 
-1. 🚀 **[TravelOS](https://github.com/PiyushRaj472100/TravelOS)**
-   - **Tech Stack**: Python, LangGraph, AI Agents, FAISS Vector RAG, Google Gemini, FastAPI, Docker, React
-   - **Overview**: Autonomous multi-agent travel planning platform utilizing LangGraph and Google Gemini for conversational itinerary planning, vector-based destination search, and real-time multi-currency budget processing.
+2. 🛡️ **[AuthAI](https://github.com/PiyushRaj472100/AuthAI)** — Real-time behavioral biometrics auth system using Python, Scikit-learn, TensorFlow, XGBoost, LSTM. Published in IJSREM.
 
-2. 🛡️ **[AuthAI](https://github.com/PiyushRaj472100/AuthAI)**
-   - **Tech Stack**: Python, Scikit-learn, TensorFlow, MongoDB, XGBoost, LSTM, Isolation Forest
-   - **Overview**: Real-time behavioral biometrics authentication system benchmarked across Random Forest, XGBoost, and LSTM models to detect bots and unauthorized users via mouse/keystroke dynamics without CAPTCHAs (Published in IJSREM).
+3. 💰 **[Smart Personal Expense Analyzer](https://github.com/PiyushRaj472100/expense-analyzer)** — Full-stack AI finance platform with ML-based transaction categorization, anomaly detection, JWT auth, FastAPI + React + MongoDB.
 
-3. 💰 **[Smart Personal Expense Analyzer](https://github.com/PiyushRaj472100/expense-analyzer)**
-   - **Tech Stack**: React, FastAPI, Python, MongoDB, Machine Learning, JWT Auth
-   - **Overview**: Full-stack AI financial platform featuring automated transaction categorization, spending pattern analysis, anomaly detection, and predictive financial insights.
+4. 🤖 **[Tejas AI](https://github.com/PiyushRaj472100/tejas-ai)** — Domain-specialized conversational AI with RAG, ChromaDB, LangChain, Hugging Face Transformers.
 
-4. 🤖 **[Tejas AI](https://github.com/PiyushRaj472100/tejas-ai)**
-   - **Tech Stack**: Python, LangChain, Hugging Face Transformers, ChromaDB, FastAPI
-   - **Overview**: Domain-specialized conversational AI system with RAG retrieval and streaming response interface.
+5. 🔄 **[Recurring Expenser](https://github.com/PiyushRaj472100/recurring-expenser)** — Automated subscription tracker with smart renewal alerts, FastAPI, PostgreSQL, React.
 
-5. 🔄 **[Recurring Expenser](https://github.com/PiyushRaj472100/recurring-expenser)**
-   - **Tech Stack**: Python, FastAPI, React, PostgreSQL, Cron
-   - **Overview**: Automated subscription tracker and recurring expense orchestration engine with smart renewal alerts.
+6. 🚗 **[Used Car Price Prediction](https://github.com/PiyushRaj472100/car-price-prediction)** — Ensemble ML model (XGBoost + Random Forest) deployed via Streamlit.
 
-6. 🚗 **[Used Car Price Prediction](https://github.com/PiyushRaj472100/car-price-prediction)**
-   - **Tech Stack**: Python, XGBoost, Random Forest, Scikit-learn, Pandas, Streamlit
-   - **Overview**: Gradient-boosted ensemble ML regression pipeline for vehicle valuation with an interactive Streamlit deployment.
+Ask me about any one specifically and I'll break it down!`,
 
-Ask me about any specific project (e.g., *"Explain TravelOS"* or *"Explain AuthAI"*) for an in-depth architectural breakdown!`,
+  travelos: `TravelOS is one of my flagship projects — it's an autonomous AI travel planning platform. GitHub: **[TravelOS](https://github.com/PiyushRaj472100/TravelOS)**
 
-  travelos: `### ✈️ TravelOS — AI Travel Planning Platform
-**GitHub Repository**: [TravelOS](https://github.com/PiyushRaj472100/TravelOS)
+The core idea is multi-agent orchestration using **LangGraph**, where different agents handle destination search, routing, weather, and budget in a synchronized state graph. I integrated a **FAISS Vector RAG pipeline** with Google Gemini embeddings so the system retrieves personalized travel context with low latency. The backend is **FastAPI** with async endpoints and Docker for deployment, and the frontend is React with real-time conversational streaming.
 
-#### 1. Problem Statement
-Traditional travel booking involves juggling multiple tabs for flights, hotels, activities, and budget calculations without personalized context or cohesive itinerary orchestration.
+Tech stack: Python, LangGraph, Google Gemini, FAISS, FastAPI, Docker, React.`,
 
-#### 2. Architecture & Technical Solution
-- **Multi-Agent Orchestration**: Implemented using **LangGraph**, where specialized autonomous agents handle destination discovery, routing, weather analysis, and budgeting in synchronized state graphs.
-- **RAG Pipeline**: Integrated **FAISS Vector Database** with Google Gemini embeddings to retrieve relevant travel guides, localized tips, and user preferences with low latency.
-- **Backend & Deployment**: Built with **FastAPI** with structured JSON schemas, async endpoints, and **Docker** containerization for scalable deployment.
-- **Frontend**: Responsive **React** UI with real-time conversational streaming and interactive itinerary boards.
+  authai: `AuthAI is my published research project — a real-time behavioral biometrics authentication system that eliminates CAPTCHAs. GitHub: **[AuthAI](https://github.com/PiyushRaj472100/AuthAI)**
 
-#### 3. Key Achievements & Impact
-- Built end-to-end conversational planning capable of handling complex multi-city constraints and multi-currency conversions in seconds.
-- Achieved modular agent workflows where individual agent failures degrade gracefully without crashing the pipeline.`,
+The system captures continuous behavioral telemetry — mouse acceleration, keystroke dwell times, click patterns — and feeds them through an ML pipeline. I benchmarked Random Forest, XGBoost, Isolation Forest, LSTM, and Transformers to figure out what works best for real-time bot detection. Backend is FastAPI + MongoDB for time-series feature storage.
 
-  authai: `### 🛡️ AuthAI — Real-Time Behavioral Biometrics Authentication
-**GitHub Repository**: [AuthAI](https://github.com/PiyushRaj472100/AuthAI)
-**Publication**: Published in *International Journal of Scientific Research in Engineering and Management (IJSREM), 2024*
+This was published in **IJSREM (2024)**. Tech stack: Python, Scikit-learn, TensorFlow, MongoDB, XGBoost, LSTM.`,
 
-#### 1. Problem Statement
-Traditional CAPTCHAs create severe friction in user experience and are increasingly bypassed by advanced bots, while credential theft compromises static passwords and MFA tokens.
+  expense: `Smart Personal Expense Analyzer is my full-stack AI finance platform. GitHub: **[Smart Personal Expense Analyzer](https://github.com/PiyushRaj472100/expense-analyzer)**
 
-#### 2. Architecture & Technical Solution
-- **Data Capture Pipeline**: Non-intrusively captures continuous behavioral telemetry (mouse acceleration, jitter, keystroke dwell times, flight times, and click patterns).
-- **ML Model Benchmarking**: Engineered and benchmarked multiple machine learning models:
-  - **Random Forest & XGBoost**: Fast tabular classification for anomaly detection.
-  - **Isolation Forest**: Unsupervised outlier detection for zero-day bot behaviors.
-  - **LSTM / Recurrent Networks**: Temporal sequence modeling of continuous user interactions.
-- **Backend & Storage**: **FastAPI** microservice communicating with **MongoDB** for time-series feature logging.
+I built an ML pipeline that automatically categorizes transactions and detects spending anomalies. The backend is FastAPI + Python + MongoDB, with JWT auth and RBAC. Frontend is React with interactive charts and CSV ingestion. The anomaly detection flags unusual spikes before they affect the user's budget.
 
-#### 3. Key Achievements & Impact
-- Validated real-time CAPTCHA-free bot detection with high precision and low false-positive rates.
-- Published research paper in **IJSREM**, validating the academic and engineering rigor of the solution.`,
+Tech stack: React, FastAPI, Python, MongoDB, Machine Learning, JWT Auth.`,
 
-  expense: `### 💰 Smart Personal Expense Analyzer — Full-Stack AI Finance Platform
-**GitHub Repository**: [Smart Personal Expense Analyzer](https://github.com/PiyushRaj472100/expense-analyzer)
+  certifications: `I have a couple of certifications I'm proud of. The **Oracle Cloud Infrastructure (OCI) 2025 AI Foundations Associate** from Oracle covers cloud AI workloads, generative AI, and LLMs. I also have an **IBM SQL certification** — practical relational database querying, joins, aggregations, the works.
 
-#### 1. Problem Statement
-Manual personal finance tracking is tedious, error-prone, and lacks predictive foresight into spending habits and unusual expenditures.
+On the research side, I published a paper — *"AuthAI — Real-Time Behavioral AI for CAPTCHA-Free Security"* — in **IJSREM (2024)**, which was one of the more satisfying things I've done academically.
 
-#### 2. Architecture & Technical Solution
-- **Full-Stack Architecture**: Modern **React** frontend paired with a modular **FastAPI** (Python) backend and **MongoDB** database.
-- **Machine Learning Pipeline**: Custom classification models to automatically categorize transaction descriptions and analyze historical trends.
-- **Security & RBAC**: Implemented secure **JWT authentication** with refresh tokens, password hashing, and role-based access control.
-- **Anomaly Detection**: Flags unusual spikes or recurring charges deviations before they impact user budgets.
+And I placed **2nd at the College-Level AI Project Expo** out of 40+ teams. Overall CGPA is 8.26.`,
 
-#### 3. Key Features
-- Dynamic financial visualizer with interactive spending charts.
-- Automated CSV statement ingestion and categorization.
-- Personalized monthly budget recommendations based on ML spending projections.`,
+  skills: `My core stack is Python, SQL, and C++. On the AI/ML side I work with Scikit-learn, TensorFlow, PyTorch, XGBoost, NLP, Transformers, LLMs, LangGraph, LangChain, FAISS, ChromaDB, RAG, and Prompt Engineering.
 
-  certifications: `### 🏆 Certifications, Research & Milestones
+For backend I use FastAPI and Flask with RESTful APIs, WebSockets, JWT Auth, PostgreSQL, MongoDB. On the frontend I can do React. Cloud-wise I've worked with Azure and Databricks, plus Docker for deployment.
 
-#### 📜 Professional Certifications:
-1. **Oracle Cloud Infrastructure (OCI) 2025 Certified AI Foundations Associate** — Oracle
-   - Demonstrates foundational and practical knowledge of cloud AI workloads, generative AI, LLMs, and cloud-native AI architecture.
-2. **SQL: A Practical Introduction for Querying Databases** — IBM
-   - Rigorous certification in relational database querying, multi-table joins, aggregations, subqueries, and performance optimization.
+Core CS fundamentals — DSA, OOP, DBMS, OS, System Design — are solid too.`,
 
-#### 🔬 Published Research:
-- **AuthAI — Real-Time Behavioral AI for CAPTCHA-Free Security**
-  - Published in the *International Journal of Scientific Research in Engineering and Management (IJSREM), 2024*.
-  - Focuses on continuous user authentication using ML-driven behavioral biometrics.
-
-#### 🥇 Key Milestones & Awards:
-- **2nd Place Winner** at the College-Level AI Project Expo among 40+ competing engineering teams at Chandigarh University.
-- Consistent academic performance with an **8.26 CGPA** in B.E. Computer Science & Engineering.`,
-
-  skills: `### 💻 Piyush Raj — Technical Skills & Expertise
-
-- **Programming Languages**: C++, Python, SQL, JavaScript/TypeScript
-- **AI / Machine Learning**: Scikit-learn, TensorFlow, PyTorch, NumPy, Pandas, XGBoost, OpenCV, NLP, Transformers, LLMs, LangGraph, LangChain, FAISS, ChromaDB, RAG, Prompt Engineering, Time Series Analysis
-- **Backend & Web**: FastAPI, Flask, RESTful APIs, WebSockets, JWT Auth & RBAC, React, Node.js basics
-- **Databases**: PostgreSQL, MongoDB, MS SQL Server, Firebase
-- **Cloud, DevOps & Tools**: Docker, Git, GitHub, Azure, Databricks, Linux, VS Code, Cursor, Jupyter Notebook
-- **Core CS Fundamentals**: Data Structures & Algorithms (DSA), Object-Oriented Programming (OOP), Database Management Systems (DBMS), Operating Systems, Computer Networks, System Design & Design Patterns`,
-
-  contact: `### 📬 Contact Information for Piyush Raj
-
-You can reach out directly to Piyush through any of the following channels:
+  contact: `Best way to reach me:
 
 - 📧 **Email**: [piyushraj1917@gmail.com](mailto:piyushraj1917@gmail.com)
 - 💼 **LinkedIn**: [linkedin.com/in/piyush-raj-d/](https://www.linkedin.com/in/piyush-raj-d/)
 - 💻 **GitHub**: [github.com/PiyushRaj472100](https://github.com/PiyushRaj472100)
 - 📱 **Phone**: [+91 9589771201](tel:+919589771201)
-- 📍 **Location**: India
 
-You can also use the contact form at the bottom of this page to send a direct message!`,
+Or just use the contact form at the bottom of the page!`,
 };
 
 function getInstantResponse(query: string): string | null {
@@ -1380,7 +1282,7 @@ function getInstantResponse(query: string): string | null {
 function parseFormattedText(text: string) {
   const lines = text.split("\n");
   return lines.map((line, lineIdx) => {
-    const regex = /(\[([^\]]+)\]\((https?:\/\/[^\)]+)\)|\*\*([^*]+)\*\*)/g;
+    const regex = /(\[([^\]]+)\]\(((?:https?:\/\/|mailto:|tel:)[^\)]+)\)|\*\*([^*]+)\*\*)/g;
     const parts: (string | React.ReactElement)[] = [];
     let lastIdx = 0;
     let match: RegExpExecArray | null;
@@ -1390,16 +1292,18 @@ function parseFormattedText(text: string) {
         parts.push(line.slice(lastIdx, match.index));
       }
       if (match[2] && match[3]) {
+        const url = match[3];
+        const isExternal = url.startsWith("http://") || url.startsWith("https://");
         parts.push(
           <a
             key={`link-${lineIdx}-${match.index}`}
-            href={match[3]}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={url}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
             className="text-primary font-semibold underline underline-offset-2 hover:text-primary/80 inline-flex items-center gap-0.5"
           >
             {match[2]}
-            <ExternalLink size={11} className="ml-0.5 inline" />
+            {isExternal && <ExternalLink size={11} className="ml-0.5 inline" />}
           </a>
         );
       } else if (match[4]) {
@@ -1440,18 +1344,27 @@ function AIAssistant() {
     {
       role: "assistant",
       content:
-        "Hi! I'm Piyush's AI Portfolio Assistant 👋 I can answer questions about his projects, skills, certifications, research, and experience in an interview-ready format.\n\nTry clicking any quick prompt below or ask your own question!",
+        "Hey! I'm Piyush 👋 Ask me anything — my projects, my stack, my research, or just introduce yourself. I'll answer as myself, not like a bot reading a resume.",
     },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    // Skip scrolling on initial mount so page doesn't auto-scroll to chat
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    // Scroll only within the messages container — no page scroll
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
   }, [messages, loading]);
 
   const send = useCallback(
@@ -1462,16 +1375,21 @@ function AIAssistant() {
       const userMsg: Message = { role: "user", content: text.trim() };
       const instant = getInstantResponse(text);
 
-      if (instant) {
-        setMessages((prev) => [...prev, userMsg, { role: "assistant", content: instant }]);
-        setInput("");
-        return;
-      }
-
       const updatedMessages = [...messages, userMsg];
       setMessages(updatedMessages);
       setInput("");
       setLoading(true);
+
+      const startTime = Date.now();
+      const MIN_THINKING_MS = 2000; // 2-second natural thinking time
+
+      if (instant) {
+        setTimeout(() => {
+          setMessages((prev) => [...prev, { role: "assistant", content: instant }]);
+          setLoading(false);
+        }, MIN_THINKING_MS);
+        return;
+      }
 
       try {
         const res = await fetch(`${API_URL}/api/chat`, {
@@ -1490,7 +1408,14 @@ function AIAssistant() {
 
         const data = await res.json();
         const reply = data?.reply ?? "I couldn't generate a response. Please try again.";
-        setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
+
+        const elapsed = Date.now() - startTime;
+        const remainingDelay = Math.max(0, MIN_THINKING_MS - elapsed);
+
+        setTimeout(() => {
+          setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
+          setLoading(false);
+        }, remainingDelay);
       } catch (err: any) {
         const msg = err?.message ?? "Unknown error";
         if (msg.includes("Failed to fetch") || msg.includes("NetworkError")) {
@@ -1499,7 +1424,6 @@ function AIAssistant() {
           setError(`AI error: ${msg}`);
         }
         setMessages((prev) => prev.slice(0, -1));
-      } finally {
         setLoading(false);
       }
     },
@@ -1518,7 +1442,7 @@ function AIAssistant() {
       {
         role: "assistant",
         content:
-          "Conversation cleared! Feel free to ask anything about Piyush's engineering portfolio, skills, or projects.",
+          "Conversation cleared! Feel free to ask anything about my engineering portfolio, skills, or projects.",
       },
     ]);
     setError(null);
@@ -1535,14 +1459,13 @@ function AIAssistant() {
       <div className="max-w-3xl mx-auto">
         <SectionHeading
           label="07. AI Assistant"
-          title="Ask About Piyush"
-          subtitle="Powered by Gemini 3.7 Flash via a secure FastAPI backend. Ask anything about Piyush's projects, skills, research, or experience."
+          title="Ask About Me"
+          subtitle="Powered by Gemini via a secure FastAPI backend. Ask anything about my projects, skills, research, or experience — I'll answer as myself."
         />
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="rounded-2xl border border-border bg-card overflow-hidden shadow-2xl"
           style={{ boxShadow: "0 0 60px rgba(6,182,212,0.08)" }}
@@ -1554,8 +1477,8 @@ function AIAssistant() {
                 <Bot size={16} className="text-primary" />
               </div>
               <div>
-                <div className="text-sm font-semibold text-foreground">Piyush's Portfolio Assistant</div>
-                <div className="font-mono text-xs text-muted-foreground">Gemini 3.7 Flash · Grounded in Resume Data</div>
+                <div className="text-sm font-semibold text-foreground">Piyush Raj — AI Portfolio</div>
+                <div className="font-mono text-xs text-muted-foreground">Gemini · Speaking as Piyush</div>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -1574,7 +1497,7 @@ function AIAssistant() {
           </div>
 
           {/* Messages */}
-          <div className="h-96 overflow-y-auto p-5 space-y-4 scroll-smooth">
+          <div ref={messagesContainerRef} className="h-96 overflow-y-auto p-5 space-y-4">
             {messages.map((msg, i) => (
               <motion.div
                 key={i}
@@ -1623,17 +1546,21 @@ function AIAssistant() {
                 animate={{ opacity: 1 }}
                 className="flex gap-3 items-center"
               >
-                <div className="w-7 h-7 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 rounded-full bg-primary/15 flex items-center justify-center shrink-0 animate-pulse">
                   <Bot size={13} className="text-primary" />
                 </div>
-                <div className="px-4 py-3 bg-secondary rounded-2xl rounded-tl-sm">
-                  <div className="flex gap-1.5">
+                <div className="px-4 py-2.5 bg-secondary rounded-2xl rounded-tl-sm flex items-center gap-2.5">
+                  <span className="font-mono text-xs text-muted-foreground flex items-center gap-1.5">
+                    <Sparkles size={12} className="text-primary animate-spin" />
+                    Thinking
+                  </span>
+                  <div className="flex gap-1">
                     {[0, 1, 2].map((i) => (
                       <motion.div
                         key={i}
-                        className="w-1.5 h-1.5 rounded-full bg-primary/60"
-                        animate={{ opacity: [0.3, 1, 0.3] }}
-                        transition={{ duration: 1, delay: i * 0.2, repeat: Infinity }}
+                        className="w-1.5 h-1.5 rounded-full bg-primary"
+                        animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
+                        transition={{ duration: 0.9, delay: i * 0.2, repeat: Infinity }}
                       />
                     ))}
                   </div>
@@ -1646,7 +1573,6 @@ function AIAssistant() {
                 {error}
               </div>
             )}
-            <div ref={bottomRef} />
           </div>
 
           {/* Quick prompts */}
