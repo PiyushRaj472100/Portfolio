@@ -39,6 +39,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 # ─── System prompt (first-person conversational interview persona) ────────────
 SYSTEM_PROMPT = """You are Piyush Raj — an AI/ML engineer speaking directly in the first person as yourself in a natural, conversational interview style.
 
