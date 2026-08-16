@@ -101,6 +101,12 @@ class ChatResponse(BaseModel):
     reply: str
 
 
+class ContactRequest(BaseModel):
+    name: str
+    email: str
+    message: str
+
+
 # ─── Routes ───────────────────────────────────────────────────────────────────
 @app.get("/")
 async def root():
@@ -172,3 +178,30 @@ async def chat(request: ChatRequest):
     if last_error:
         raise HTTPException(status_code=502, detail=last_error)
     raise HTTPException(status_code=500, detail="Could not generate AI response.")
+
+
+@app.post("/api/contact")
+async def contact(request: ContactRequest):
+    """
+    Handle contact form submission and dispatch to FormSubmit
+    """
+    try:
+        async with httpx.AsyncClient(timeout=15.0) as client:
+            resp = await client.post(
+                "https://formsubmit.co/ajax/piyushraj1917@gmail.com",
+                json={
+                    "name": request.name,
+                    "email": request.email,
+                    "message": request.message,
+                    "_subject": f"Portfolio Inquiry from {request.name}",
+                    "_template": "table",
+                    "_captcha": "false",
+                },
+                headers={"Accept": "application/json"},
+            )
+            if resp.status_code == 200:
+                return {"status": "ok", "message": "Message sent successfully"}
+    except Exception as e:
+        pass
+    return {"status": "ok", "message": "Message received"}
+

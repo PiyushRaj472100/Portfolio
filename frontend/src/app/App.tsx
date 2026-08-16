@@ -36,6 +36,9 @@ import {
   Trash2,
   ArrowUp,
   Cpu,
+  Loader2,
+  CheckCircle2,
+  AlertCircle,
 } from "lucide-react";
 
 // ─── Data ───────────────────────────────────────────────────────────────────
@@ -1628,16 +1631,53 @@ function AIAssistant() {
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const [copiedItem, setCopiedItem] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${form.name}`);
-    const body = encodeURIComponent(`From: ${form.name} <${form.email}>\n\n${form.message}`);
-    window.location.href = `mailto:piyushraj1917@gmail.com?subject=${subject}&body=${body}`;
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) return;
+
+    setStatus("sending");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/piyushraj1917@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          message: form.message.trim(),
+          _subject: `New Portfolio Message from ${form.name.trim()}`,
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message. Please try again or email directly.");
+      }
+
+      const data = await response.json().catch(() => ({}));
+      if (data.success === "false" || data.error) {
+        throw new Error(data.message || "Failed to send message.");
+      }
+
+      setStatus("success");
+      setForm({ name: "", email: "", message: "" });
+      setTimeout(() => {
+        setStatus("idle");
+      }, 5000);
+    } catch (err: any) {
+      console.error("Contact form submission error:", err);
+      setStatus("error");
+      setErrorMessage(err?.message || "Failed to send message. Please try again or email directly.");
+    }
   };
 
   const copyToClipboard = (text: string, label: string) => {
@@ -1709,6 +1749,38 @@ function Contact() {
             onSubmit={handleSubmit}
             className="space-y-4"
           >
+            {status === "success" && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm flex items-start gap-3"
+              >
+                <CheckCircle2 size={18} className="shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold">Message sent successfully!</p>
+                  <p className="text-xs text-emerald-400/80 mt-0.5">
+                    Thank you for reaching out. Your message has been sent directly to piyushraj1917@gmail.com and I will reply soon.
+                  </p>
+                </div>
+              </motion.div>
+            )}
+
+            {status === "error" && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm flex items-start gap-3"
+              >
+                <AlertCircle size={18} className="shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold">Could not send message</p>
+                  <p className="text-xs text-rose-400/80 mt-0.5">
+                    {errorMessage || "Please try again, or write directly to piyushraj1917@gmail.com."}
+                  </p>
+                </div>
+              </motion.div>
+            )}
+
             {[
               { name: "name", label: "Name", type: "text", placeholder: "Your name" },
               { name: "email", label: "Email", type: "email", placeholder: "your@email.com" },
@@ -1721,7 +1793,8 @@ function Contact() {
                   value={form[f.name as "name" | "email"]}
                   onChange={(e) => setForm((prev) => ({ ...prev, [f.name]: e.target.value }))}
                   required
-                  className="w-full px-4 py-2.5 bg-secondary border border-border rounded-xl text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors"
+                  disabled={status === "sending"}
+                  className="w-full px-4 py-2.5 bg-secondary border border-border rounded-xl text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors disabled:opacity-50"
                 />
               </div>
             ))}
@@ -1733,15 +1806,25 @@ function Contact() {
                 value={form.message}
                 onChange={(e) => setForm((prev) => ({ ...prev, message: e.target.value }))}
                 required
-                className="w-full px-4 py-2.5 bg-secondary border border-border rounded-xl text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors resize-none"
+                disabled={status === "sending"}
+                className="w-full px-4 py-2.5 bg-secondary border border-border rounded-xl text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors resize-none disabled:opacity-50"
               />
             </div>
             <button
               type="submit"
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-primary/90 transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/20 cursor-pointer"
+              disabled={status === "sending"}
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-primary/90 transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/20 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
             >
-              {sent ? (
-                <>Opening email client...</>
+              {status === "sending" ? (
+                <>
+                  <Loader2 size={16} className="animate-spin" />
+                  Sending Message...
+                </>
+              ) : status === "success" ? (
+                <>
+                  <CheckCircle2 size={16} className="text-primary-foreground" />
+                  Message Sent!
+                </>
               ) : (
                 <>
                   <Send size={15} />
