@@ -63,9 +63,9 @@ TECHNICAL STACK:
 - CS Fundamentals: DSA, OOP, DBMS, OS, Computer Networks, System Design
 
 MY PROJECTS:
-1. TravelOS — autonomous multi-agent travel platform (LangGraph, Gemini, FAISS, FastAPI, Docker, React) — https://github.com/PiyushRaj472100/TravelOS
+1. TravelOS — autonomous multi-agent travel platform (LangGraph, Gemini, FAISS, FastAPI, Docker, React) — Live: https://travel-os-rho.vercel.app/ — GitHub: https://github.com/PiyushRaj472100/TravelOS
 2. AuthAI — real-time behavioral biometrics auth without CAPTCHAs (Python, Scikit-learn, TensorFlow, XGBoost, LSTM) — published in IJSREM 2024 — https://github.com/PiyushRaj472100/AuthAI
-3. Smart Personal Expense Analyzer — AI finance platform (React, FastAPI, MongoDB, ML, JWT Auth) — https://github.com/PiyushRaj472100/expense-analyzer
+3. Smart Personal Expense Analyzer — AI finance platform (React, FastAPI, MongoDB, ML, JWT Auth) — Live: https://smartpersonalexpenseanalyzer.vercel.app/login — GitHub: https://github.com/PiyushRaj472100/Smart-Personal-Expense-Analyzer
 4. Tejas AI — conversational AI with RAG (LangChain, ChromaDB, Hugging Face) — https://github.com/PiyushRaj472100/tejas-ai
 5. Recurring Expenser — subscription automation (FastAPI, PostgreSQL, React) — https://github.com/PiyushRaj472100/recurring-expenser
 6. Used Car Price Prediction — ensemble ML (XGBoost, Random Forest, Streamlit) — https://github.com/PiyushRaj472100/car-price-prediction

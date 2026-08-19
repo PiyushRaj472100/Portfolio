@@ -73,7 +73,7 @@ const PROJECTS = [
     category: "AI Application",
     color: "#06b6d4",
     github: "https://github.com/PiyushRaj472100/TravelOS",
-    demo: null,
+    demo: "https://travel-os-rho.vercel.app/",
     highlights: ["Multi-agent LangGraph orchestration", "FAISS Vector RAG", "Conversational itinerary planning"],
     onResume: true,
   },
@@ -86,8 +86,8 @@ const PROJECTS = [
     tags: ["React", "FastAPI", "Python", "MongoDB", "JWT Auth", "ML", "AI Categorization"],
     category: "Full-Stack + ML",
     color: "#34d399",
-    github: "https://github.com/PiyushRaj472100/expense-analyzer",
-    demo: null,
+    github: "https://github.com/PiyushRaj472100/Smart-Personal-Expense-Analyzer",
+    demo: "https://smartpersonalexpenseanalyzer.vercel.app/login",
     highlights: ["JWT auth + RBAC", "AI-based expense categorization", "Anomaly detection pipeline"],
     onResume: true,
   },
@@ -797,17 +797,30 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
           ))}
         </div>
 
-        {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-mono mt-1 hover:text-primary text-muted-foreground transition-colors"
-          >
-            <Github size={11} />
-            {project.github.replace("https://github.com/", "github.com/")}
-          </a>
-        )}
+        <div className="flex flex-wrap items-center justify-between gap-2 mt-1 pt-1 border-t border-border/40">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-mono hover:text-primary text-muted-foreground transition-colors"
+            >
+              <Github size={11} />
+              {project.github.replace("https://github.com/", "github.com/")}
+            </a>
+          )}
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-primary hover:text-primary/80 transition-colors ml-auto"
+            >
+              <ExternalLink size={11} />
+              Live Demo
+            </a>
+          )}
+        </div>
       </div>
     </motion.div>
   );
@@ -1158,11 +1171,11 @@ I've also published research in IJSREM on behavioral biometrics and bot detectio
 
   projects: `I've built six projects, mostly around AI/ML and intelligent systems:
 
-1. 🚀 **[TravelOS](https://github.com/PiyushRaj472100/TravelOS)** — Autonomous multi-agent travel platform using LangGraph, Google Gemini, FAISS Vector RAG, FastAPI, Docker, React.
+1. 🚀 **[TravelOS](https://github.com/PiyushRaj472100/TravelOS)** ([Live Demo](https://travel-os-rho.vercel.app/)) — Autonomous multi-agent travel platform using LangGraph, Google Gemini, FAISS Vector RAG, FastAPI, Docker, React.
 
 2. 🛡️ **[AuthAI](https://github.com/PiyushRaj472100/AuthAI)** — Real-time behavioral biometrics auth system using Python, Scikit-learn, TensorFlow, XGBoost, LSTM. Published in IJSREM.
 
-3. 💰 **[Smart Personal Expense Analyzer](https://github.com/PiyushRaj472100/expense-analyzer)** — Full-stack AI finance platform with ML-based transaction categorization, anomaly detection, JWT auth, FastAPI + React + MongoDB.
+3. 💰 **[Smart Personal Expense Analyzer](https://github.com/PiyushRaj472100/Smart-Personal-Expense-Analyzer)** ([Live Demo](https://smartpersonalexpenseanalyzer.vercel.app/login)) — Full-stack AI finance platform with ML-based transaction categorization, anomaly detection, JWT auth, FastAPI + React + MongoDB.
 
 4. 🤖 **[Tejas AI](https://github.com/PiyushRaj472100/tejas-ai)** — Domain-specialized conversational AI with RAG, ChromaDB, LangChain, Hugging Face Transformers.
 
@@ -1172,7 +1185,7 @@ I've also published research in IJSREM on behavioral biometrics and bot detectio
 
 Ask me about any one specifically and I'll break it down!`,
 
-  travelos: `TravelOS is one of my flagship projects — it's an autonomous AI travel planning platform. GitHub: **[TravelOS](https://github.com/PiyushRaj472100/TravelOS)**
+  travelos: `TravelOS is one of my flagship projects — it's an autonomous AI travel planning platform. Live: **[travel-os-rho.vercel.app](https://travel-os-rho.vercel.app/)** | GitHub: **[TravelOS](https://github.com/PiyushRaj472100/TravelOS)**
 
 The core idea is multi-agent orchestration using **LangGraph**, where different agents handle destination search, routing, weather, and budget in a synchronized state graph. I integrated a **FAISS Vector RAG pipeline** with Google Gemini embeddings so the system retrieves personalized travel context with low latency. The backend is **FastAPI** with async endpoints and Docker for deployment, and the frontend is React with real-time conversational streaming.
 
@@ -1184,7 +1197,7 @@ The system captures continuous behavioral telemetry — mouse acceleration, keys
 
 This was published in **IJSREM (2024)**. Tech stack: Python, Scikit-learn, TensorFlow, MongoDB, XGBoost, LSTM.`,
 
-  expense: `Smart Personal Expense Analyzer is my full-stack AI finance platform. GitHub: **[Smart Personal Expense Analyzer](https://github.com/PiyushRaj472100/expense-analyzer)**
+  expense: `Smart Personal Expense Analyzer is my full-stack AI finance platform. Live: **[smartpersonalexpenseanalyzer.vercel.app](https://smartpersonalexpenseanalyzer.vercel.app/login)** | GitHub: **[Smart Personal Expense Analyzer](https://github.com/PiyushRaj472100/Smart-Personal-Expense-Analyzer)**
 
 I built an ML pipeline that automatically categorizes transactions and detects spending anomalies. The backend is FastAPI + Python + MongoDB, with JWT auth and RBAC. Frontend is React with interactive charts and CSV ingestion. The anomaly detection flags unusual spikes before they affect the user's budget.
 
